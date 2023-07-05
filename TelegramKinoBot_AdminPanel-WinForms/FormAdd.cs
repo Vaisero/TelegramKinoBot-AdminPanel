@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Windows.Forms;
 
 namespace TelegramKinoBot_AdminPanel_WinForms
@@ -10,12 +11,7 @@ namespace TelegramKinoBot_AdminPanel_WinForms
             InitializeComponent();
         }
 
-        private void Submit_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Cancel_Click(object sender, EventArgs e)
+        private void Save_Click(object sender, EventArgs e)
         {
 
         }
