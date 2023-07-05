@@ -33,7 +33,7 @@ namespace TelegramKinoBot_AdminPanel_WinForms
             listView1.Columns.Add("Ссылка", 100);
             listView1.Columns.Add("Ссылка", 100);
             listView1.Columns.Add("Редактировать", 100);
-            listView1.Columns.Add("Удалить", 80);
+            listView1.Columns.Add("Удалить", 74);
 
             string sql = "Select id, name, image, link, link2, link3, link4, link5 from kino.kino";//запрос на вывод данных
             NpgsqlConnection connection = CONNECTION_STRING();
@@ -57,5 +57,30 @@ namespace TelegramKinoBot_AdminPanel_WinForms
             connection.Close();
         }
 
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            var FormAdd = new FormAdd();
+            FormAdd.Show();
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+             "Выберите один из вариантов",
+             "Сообщение",
+             MessageBoxButtons.OK,
+             MessageBoxIcon.Information,
+             MessageBoxDefaultButton.Button1);
+        }
+
+        private void buttonUserChange_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+             "Выберите один из вариантов",
+             "Сообщение",
+             MessageBoxButtons.OK,
+             MessageBoxIcon.Information,
+             MessageBoxDefaultButton.Button1);
+        }
     }
 }
