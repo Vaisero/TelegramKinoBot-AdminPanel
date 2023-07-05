@@ -1,6 +1,8 @@
 ﻿using Npgsql;
 using System;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using TelegramKinoBot_AdminPanel_WinForms;
 
 namespace TelegramKinoBot_AdminPanel_WinForms
 {
@@ -9,7 +11,7 @@ namespace TelegramKinoBot_AdminPanel_WinForms
         public FormMain()
         {
             InitializeComponent();
-            DB_Table.DB_TableShow(listView1);
+            DB_Table.DB_TableInitialize(listView1);
         }
 
         public static NpgsqlConnection CONNECTION_STRING()
@@ -22,24 +24,22 @@ namespace TelegramKinoBot_AdminPanel_WinForms
         {
             var AddForm = new FormAdd();
             AddForm.ShowDialog();
+            DB_Table.DB_TableShow(listView1);
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(
-             "Выберите один из вариантов",
-             "Сообщение",
-             MessageBoxButtons.OK,
-             MessageBoxIcon.Information);
+            DB_Table.DB_TableShow(listView1);
         }
 
         private void buttonUserChange_Click(object sender, EventArgs e)
         {
             MessageBox.Show(
-             "Выберите один из вариантов",
+             "В разработке",
              "Сообщение",
              MessageBoxButtons.OK,
-             MessageBoxIcon.Information);
+             MessageBoxIcon.Information,
+             MessageBoxDefaultButton.Button1);
         }
     }
 }

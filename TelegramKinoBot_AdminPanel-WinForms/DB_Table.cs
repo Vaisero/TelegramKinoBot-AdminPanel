@@ -1,12 +1,13 @@
 ﻿using Npgsql;
 using System;
 using System.Windows.Forms;
+using TelegramKinoBot_AdminPanel_WinForms;
 
 namespace TelegramKinoBot_AdminPanel_WinForms
 {
     internal class DB_Table
     {
-        public static void DB_TableShow(ListView listView1)//отображение списка на главной форме
+        public static void DB_TableInitialize(ListView listView1)
         {
             listView1.GridLines = true;
             listView1.View = View.Details;
@@ -23,6 +24,12 @@ namespace TelegramKinoBot_AdminPanel_WinForms
             listView1.Columns.Add("Редактировать", 100);
             listView1.Columns.Add("Удалить", 74);
 
+            DB_TableShow(listView1);
+
+        }
+
+        public static void DB_TableShow(ListView listView1)//отображение списка на главной форме
+        {
             string sql = "Select id, name, image, link, link2, link3, link4, link5 from kino.kino";//запрос на вывод данных
             NpgsqlConnection connection = FormMain.CONNECTION_STRING();
             connection.Open();
