@@ -1,8 +1,6 @@
 ﻿using Npgsql;
 using System;
 using System.Windows.Forms;
-using TelegramKinoBot_AdminPanel_WinForms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TelegramKinoBot_AdminPanel_WinForms
 {
@@ -19,13 +17,14 @@ namespace TelegramKinoBot_AdminPanel_WinForms
             {
                 NpgsqlConnection connection = FormMain.CONNECTION_STRING();
                 connection.Open();
-
+                
                 string sql = $"INSERT into kino.kino(name, image, link, link2, link3, link4, link5) VALUES ('{textBoxName.Text}', '{textBoxImage.Text}', '{textBoxKinoLink.Text}', '{textBoxLink1.Text}', '{textBoxLink2.Text}', '{textBoxLink3.Text}', '{textBoxLink4.Text}');";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
-                cmd.ExecuteNonQuery();
-
+                cmd.ExecuteNonQuery();//занесение нового фильма в БД
                 connection.Close();
+
+                Labels.RefreshLabel();//обновление счётчика колличества фильмов 
             }
             else//проверка на  заполненность обязательных строк
             {

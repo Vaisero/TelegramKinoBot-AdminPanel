@@ -1,7 +1,6 @@
 ﻿using Npgsql;
 using System;
 using System.Windows.Forms;
-using TelegramKinoBot_AdminPanel_WinForms;
 
 namespace TelegramKinoBot_AdminPanel_WinForms
 {

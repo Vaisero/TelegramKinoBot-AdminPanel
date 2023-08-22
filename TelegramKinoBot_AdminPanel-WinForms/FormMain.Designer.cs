@@ -35,8 +35,8 @@
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.labelTotal = new System.Windows.Forms.Label();
-            this.labelAdded = new System.Windows.Forms.Label();
+            labelTotal = new System.Windows.Forms.Label();
+            labelAdded = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listView1
@@ -106,27 +106,27 @@
             // 
             // labelTotal
             // 
-            this.labelTotal.AutoSize = true;
-            this.labelTotal.Location = new System.Drawing.Point(257, 690);
-            this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(0, 13);
-            this.labelTotal.TabIndex = 6;
+            labelTotal.AutoSize = true;
+            labelTotal.Location = new System.Drawing.Point(257, 690);
+            labelTotal.Name = "labelTotal";
+            labelTotal.Size = new System.Drawing.Size(0, 13);
+            labelTotal.TabIndex = 6;
             // 
             // labelAdded
-            // 
-            this.labelAdded.AutoSize = true;
-            this.labelAdded.Location = new System.Drawing.Point(902, 690);
-            this.labelAdded.Name = "labelAdded";
-            this.labelAdded.Size = new System.Drawing.Size(0, 13);
-            this.labelAdded.TabIndex = 7;
+          
+            labelAdded.AutoSize = true;
+            labelAdded.Location = new System.Drawing.Point(902, 690);
+            labelAdded.Name = "labelAdded";
+            labelAdded.Size = new System.Drawing.Size(0, 13);
+            labelAdded.TabIndex = 7;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 712);
-            this.Controls.Add(this.labelAdded);
-            this.Controls.Add(this.labelTotal);
+            this.Controls.Add(labelAdded);
+            this.Controls.Add(labelTotal);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonRefresh);
@@ -152,7 +152,7 @@
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label labelTotal;
-        private System.Windows.Forms.Label labelAdded;
+        public static System.Windows.Forms.Label labelTotal;
+        public static System.Windows.Forms.Label labelAdded;
     }
 }

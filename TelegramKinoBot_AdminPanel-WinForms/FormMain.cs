@@ -1,8 +1,6 @@
 ﻿using Npgsql;
 using System;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using TelegramKinoBot_AdminPanel_WinForms;
 
 namespace TelegramKinoBot_AdminPanel_WinForms
 {
@@ -11,7 +9,9 @@ namespace TelegramKinoBot_AdminPanel_WinForms
         public FormMain()
         {
             InitializeComponent();
-            DB_Table.DB_TableInitialize(listView1);
+            DB_Table.DB_TableInitialize(listView1);//отображение списка фильмов
+            labelAdded.Text = null; //колличество добавленных фильмов за сессию
+            Labels.RefreshLabel();//обновление счётчика колличества фильмов 
         }
 
         public static NpgsqlConnection CONNECTION_STRING()
@@ -24,7 +24,8 @@ namespace TelegramKinoBot_AdminPanel_WinForms
         {
             var AddForm = new FormAdd();
             AddForm.ShowDialog();
-            DB_Table.DB_TableShow(listView1);
+
+            DB_Table.DB_TableShow(listView1);//обновление страницы
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)
