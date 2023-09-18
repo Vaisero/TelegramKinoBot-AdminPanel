@@ -41,20 +41,23 @@
             // 
             // listView1
             // 
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(0, 45);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1098, 642);
+            this.listView1.Size = new System.Drawing.Size(1161, 642);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // buttonUserChange
             // 
-            this.buttonUserChange.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonUserChange.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonUserChange.Location = new System.Drawing.Point(0, 1);
+            this.buttonUserChange.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonUserChange.BackColor = System.Drawing.Color.Cyan;
+            this.buttonUserChange.Location = new System.Drawing.Point(31, 1);
             this.buttonUserChange.Name = "buttonUserChange";
-            this.buttonUserChange.Size = new System.Drawing.Size(211, 44);
+            this.buttonUserChange.Size = new System.Drawing.Size(220, 44);
             this.buttonUserChange.TabIndex = 1;
             this.buttonUserChange.Text = "Сменить Пользователя";
             this.buttonUserChange.UseVisualStyleBackColor = false;
@@ -62,10 +65,10 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonAdd.BackColor = System.Drawing.SystemColors.Desktop;
+            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAdd.BackColor = System.Drawing.Color.LawnGreen;
             this.buttonAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonAdd.Location = new System.Drawing.Point(214, 1);
+            this.buttonAdd.Location = new System.Drawing.Point(251, 1);
             this.buttonAdd.Margin = new System.Windows.Forms.Padding(0);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(440, 44);
@@ -76,9 +79,9 @@
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonRefresh.BackColor = System.Drawing.SystemColors.Info;
-            this.buttonRefresh.Location = new System.Drawing.Point(657, 1);
+            this.buttonRefresh.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.buttonRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.buttonRefresh.Location = new System.Drawing.Point(691, 1);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(440, 44);
             this.buttonRefresh.TabIndex = 3;
@@ -88,6 +91,9 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(130, 690);
             this.label1.Name = "label1";
@@ -97,6 +103,9 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(732, 690);
             this.label2.Name = "label2";
@@ -106,6 +115,9 @@
             // 
             // labelTotal
             // 
+            labelTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             labelTotal.AutoSize = true;
             labelTotal.Location = new System.Drawing.Point(257, 690);
             labelTotal.Name = "labelTotal";
@@ -113,7 +125,10 @@
             labelTotal.TabIndex = 6;
             // 
             // labelAdded
-          
+            // 
+            labelAdded.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             labelAdded.AutoSize = true;
             labelAdded.Location = new System.Drawing.Point(902, 690);
             labelAdded.Name = "labelAdded";
@@ -124,7 +139,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1098, 712);
+            this.ClientSize = new System.Drawing.Size(1161, 712);
             this.Controls.Add(labelAdded);
             this.Controls.Add(labelTotal);
             this.Controls.Add(this.label2);

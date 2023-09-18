@@ -19,7 +19,7 @@ namespace TelegramKinoBot_AdminPanel_WinForms
 
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
             var reader = cmd.ExecuteReader();
-            while (reader.Read()) 
+            while (reader.Read())
             {
                 FormMain.labelTotal.Text = reader.GetInt32(0).ToString(); //вывод общего числа фильмов в БД
             }
