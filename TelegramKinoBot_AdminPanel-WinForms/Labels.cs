@@ -15,7 +15,7 @@ namespace TelegramKinoBot_AdminPanel_WinForms
             NpgsqlConnection connection = FormMain.CONNECTION_STRING();
             connection.Open();
 
-            string sql = $"select MAX(id) as id from kino.kino";
+            string sql = $"select count (*) from kino.kino";
 
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
             var reader = cmd.ExecuteReader();

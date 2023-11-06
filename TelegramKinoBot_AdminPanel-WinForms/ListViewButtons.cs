@@ -26,7 +26,7 @@ namespace TelegramKinoBot_AdminPanel_WinForms
             ListView.MouseMove += OnMouseMove;
             ListView.MouseClick += OnMouseClick;
 
-            Font = new Font(ListView.Font.FontFamily, ListView.Font.Size - 2);
+            Font = new Font(ListView.Font.FontFamily, ListView.Font.Size - 0);
         }
 
         public virtual Font Font { get; private set; }
