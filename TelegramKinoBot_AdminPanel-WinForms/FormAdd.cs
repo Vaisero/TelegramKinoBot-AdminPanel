@@ -11,6 +11,12 @@ namespace TelegramKinoBot_AdminPanel_WinForms
             InitializeComponent();
         }
 
+        public FormAdd(String s)
+        {
+            InitializeComponent();
+
+        }
+
         private void Save_Click(object sender, EventArgs e)
         {
             if (textBoxName.Text != String.Empty && textBoxImage.Text != String.Empty && textBoxKinoLink.Text != String.Empty)

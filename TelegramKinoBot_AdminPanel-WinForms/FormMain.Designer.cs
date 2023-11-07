@@ -1,4 +1,6 @@
-﻿namespace TelegramKinoBot_AdminPanel_WinForms
+﻿using System.Windows.Forms;
+
+namespace TelegramKinoBot_AdminPanel_WinForms
 {
     partial class FormMain
     {
@@ -29,7 +31,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.listView1 = new System.Windows.Forms.ListView();
+            listView1 = new System.Windows.Forms.ListView();
             this.buttonUserChange = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
@@ -41,15 +43,15 @@
             // 
             // listView1
             // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(0, 45);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1161, 642);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            listView1.HideSelection = false;
+            listView1.Location = new System.Drawing.Point(0, 45);
+            listView1.Name = "listView1";
+            listView1.Size = new System.Drawing.Size(1161, 642);
+            listView1.TabIndex = 0;
+            listView1.UseCompatibleStateImageBehavior = false;
             // 
             // buttonUserChange
             // 
@@ -147,7 +149,7 @@
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.buttonUserChange);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(listView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -161,7 +163,13 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
+        private static System.Windows.Forms.ListView listView1;
+        
+        public static ListView GetListView()
+        {
+            return listView1;
+        }
+
         private System.Windows.Forms.Button buttonUserChange;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonRefresh;

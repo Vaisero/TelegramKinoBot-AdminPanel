@@ -9,7 +9,7 @@ namespace TelegramKinoBot_AdminPanel_WinForms
         public FormMain()
         {
             InitializeComponent();
-            DB_Table.DB_TableInitialize(listView1);//отображение списка фильмов
+            DB_Table.DB_TableInitialize();//отображение списка фильмов
             labelAdded.Text = null; //колличество добавленных фильмов за сессию
             Labels.RefreshLabel();//обновление счётчика колличества фильмов 
         }
@@ -22,15 +22,21 @@ namespace TelegramKinoBot_AdminPanel_WinForms
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            var AddForm = new FormAdd();
-            AddForm.ShowDialog();
+            var FormAdd = new FormAdd();
+            FormAdd.ShowDialog();
 
-            DB_Table.DB_TableShow(listView1);//обновление страницы
+            RefreshDB();
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            DB_Table.DB_TableShow(listView1);
+            RefreshDB();
+        }
+
+        public static void RefreshDB()
+        {
+            DB_Table.DB_TableShow();
+            Labels.RefreshLabel();
         }
 
         private void buttonUserChange_Click(object sender, EventArgs e)

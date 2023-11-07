@@ -94,12 +94,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DB_Table.cs" />
-    <Compile Include="EditFilm.cs">
+    <Compile Include="DB_Table.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EditFilm.Designer.cs">
-      <DependentUpon>EditFilm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAdd.cs">
       <SubType>Form</SubType>
