@@ -15,11 +15,11 @@ namespace TelegramKinoBot_AdminPanel_WinForms
             NpgsqlConnection connection = FormMain.CONNECTION_STRING();
             connection.Open();
 
-            string sql = $"select MAX(id) as id from kino.kino";
+            string sql = $"select count (*) from kino.kino";
 
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
             var reader = cmd.ExecuteReader();
-            while (reader.Read()) 
+            while (reader.Read())
             {
                 FormMain.labelTotal.Text = reader.GetInt32(0).ToString(); //вывод общего числа фильмов в БД
             }

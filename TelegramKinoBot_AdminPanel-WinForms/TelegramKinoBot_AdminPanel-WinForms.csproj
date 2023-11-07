@@ -94,7 +94,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DB_Table.cs" />
+    <Compile Include="DB_Table.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +110,7 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Labels.cs" />
+    <Compile Include="ListViewButtons.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAdd.resx">
