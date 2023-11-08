@@ -23,18 +23,19 @@ namespace TelegramKinoBot_AdminPanel_WinForms
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             var FormAdd = new FormAdd();
-            FormAdd.ShowDialog();
+            FormAdd.ShowDialog();//форма добавления новых фильмов в БД
 
             RefreshDB();
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            RefreshDB();
+            RefreshDB();//обновление отображения таблицы
         }
 
         public static void RefreshDB()
         {
+            //обновление отображения таблицы
             DB_TableShow.Show();
             Labels.RefreshLabel();
         }

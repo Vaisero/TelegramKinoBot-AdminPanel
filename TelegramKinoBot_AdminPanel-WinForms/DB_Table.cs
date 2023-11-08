@@ -1,5 +1,4 @@
 ﻿using System.Windows.Forms;
-using ListView = System.Windows.Forms.ListView;
 
 namespace TelegramKinoBot_AdminPanel_WinForms
 {
@@ -8,6 +7,8 @@ namespace TelegramKinoBot_AdminPanel_WinForms
 
         public static void DB_TableInitialize()
         {
+            //Создание таблицы на экране приложения
+
             ListView listView1 = GetListView();
 
 
@@ -28,10 +29,12 @@ namespace TelegramKinoBot_AdminPanel_WinForms
             listView1.Columns.Add("Редактировать", 112);
             listView1.Columns.Add("Удалить", 85);
 
+            //авто-создание кнопки редактирования в ListView
             ListViewButtonColumn EditButton = new ListViewButtonColumn(8);
             EditButton.FixedWidth = true;
             EditButton.Click += FilmButtons.EditFilm;
 
+            //авто-создание кнопки удаления в ListView
             ListViewButtonColumn DeleteButton = new ListViewButtonColumn(9);
             DeleteButton.FixedWidth = true;
             DeleteButton.Click += FilmButtons.DeleteFilm;

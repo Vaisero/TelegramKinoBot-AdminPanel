@@ -6,8 +6,10 @@ namespace TelegramKinoBot_AdminPanel_WinForms
 {
     internal class DB_TableShow
     {
-        public static void Show()//отображение списка на главной форме
+        public static void Show()
         {
+            //Отображение и обновление данных в таблице
+
             ListView listView1 = FormMain.GetListView();
 
             ImageList imageList = new ImageList();
@@ -16,7 +18,7 @@ namespace TelegramKinoBot_AdminPanel_WinForms
             NpgsqlConnection connection = FormMain.CONNECTION_STRING();
             connection.Open();
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
-            var Reader = cmd.ExecuteReader();
+            var Reader = cmd.ExecuteReader();//"считывает" данные из БД
             listView1.Items.Clear();
             int i = 0;
             while (Reader.Read())//вывод данных БД в таблицу
@@ -25,7 +27,7 @@ namespace TelegramKinoBot_AdminPanel_WinForms
                 lv.SubItems.Add((string)Reader["name"]);
                 var s = (string)Reader["image"];
                 lv.SubItems.Add(s);
-                Image.ImageOutput(s, imageList, lv, i); i++;
+                Image.ImageOutput(s, imageList, lv, i); i++;//вставка изображения
                 lv.SubItems.Add((string)Reader["link"]);
                 lv.SubItems.Add((Reader["link2"] == DBNull.Value ? "" : (string)Reader["link2"]));
                 lv.SubItems.Add((Reader["link3"] == DBNull.Value ? "" : (string)Reader["link3"]));

@@ -8,6 +8,8 @@ namespace TelegramKinoBot_AdminPanel_WinForms
 {
     public class ListViewButtons : IDisposable
     {
+        //класс автоматически создаёт активные кнопки в ListView для каждой строки, так как по стандарту это невозможно
+
         private readonly Dictionary<int, ListViewColumn> _columns = new Dictionary<int, ListViewColumn>();
 
         public ListViewButtons(ListView listView)
@@ -18,6 +20,7 @@ namespace TelegramKinoBot_AdminPanel_WinForms
             if (listView.View != View.Details)
                 throw new ArgumentException(null, "listView");
 
+            //параметры кнопок
             ListView = listView;
             ListView.OwnerDraw = true;
             ListView.DrawItem += OnDrawItem;
@@ -34,6 +37,7 @@ namespace TelegramKinoBot_AdminPanel_WinForms
 
         protected virtual void OnMouseClick(object sender, MouseEventArgs e)
         {
+            //активация кнопок на ListView
             ListViewItem item;
             ListViewItem.ListViewSubItem sub;
             ListViewColumn column = GetColumnAt(e.X, e.Y, out item, out sub);
@@ -45,6 +49,7 @@ namespace TelegramKinoBot_AdminPanel_WinForms
 
         public ListViewColumn GetColumnAt(int x, int y, out ListViewItem item, out ListViewItem.ListViewSubItem subItem)
         {
+            //расположение кнопок
             subItem = null;
             item = ListView.GetItemAt(x, y);
             if (item == null)
@@ -97,11 +102,12 @@ namespace TelegramKinoBot_AdminPanel_WinForms
 
         protected virtual void OnDrawItem(object sender, DrawListViewItemEventArgs e)
         {
-            // do nothing
+            //"заглушка"
         }
 
         public void AddColumn(ListViewColumn column)
         {
+            //создание кнопок в конкретных колонках
             if (column == null)
                 throw new ArgumentNullException("column");
 
@@ -135,6 +141,8 @@ namespace TelegramKinoBot_AdminPanel_WinForms
 
     public abstract class ListViewColumn
     {
+        //вспомогательный класс для определения колонок
+
         public event EventHandler<ListViewColumnMouseEventArgs> Click;
 
         protected ListViewColumn(int columnIndex)
@@ -185,6 +193,8 @@ namespace TelegramKinoBot_AdminPanel_WinForms
 
     public class ListViewColumnMouseEventArgs : MouseEventArgs
     {
+        //вспомогательный класс для определения позиции кнопки под курсором
+
         public ListViewColumnMouseEventArgs(MouseEventArgs e, ListViewItem item, ListViewItem.ListViewSubItem subItem)
             : base(e.Button, e.Clicks, e.X, e.Y, e.Delta)
         {
@@ -198,6 +208,8 @@ namespace TelegramKinoBot_AdminPanel_WinForms
 
     public class ListViewButtonColumn : ListViewColumn
     {
+        //отрисовка кнопок в таблице
+
         private Rectangle _hot = Rectangle.Empty;
 
         public ListViewButtonColumn(int columnIndex)

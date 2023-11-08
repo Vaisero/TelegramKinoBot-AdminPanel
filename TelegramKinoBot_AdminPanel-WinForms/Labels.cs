@@ -8,12 +8,14 @@ namespace TelegramKinoBot_AdminPanel_WinForms
         
         public static void RefreshLabel ()
         {
-            // обработка labelTotal
+            //создание и обновление Label
 
-            //вывод общего числа фильмов в БД
+
+            // обработка labelTotal           
             NpgsqlConnection connection = FormMain.CONNECTION_STRING();
             connection.Open();
 
+            //вывод количества фильмов в БД
             string sql = $"select count (*) from kino.kino";
 
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
@@ -25,22 +27,23 @@ namespace TelegramKinoBot_AdminPanel_WinForms
             connection.Close();
 
 
+
             // обработка labelAdded
 
             //колличество добавленных фильмов за сессию
             try
             {
                 var num = Int32.Parse(FormMain.labelAdded.Text);
-                num++;
+                num++;//счётчик обновляется при перезапуске программы
                 FormMain.labelAdded.Text = num.ToString();
             }
             catch (ArgumentNullException ex)
             {
-                FormMain.labelAdded.Text = "0";
+                FormMain.labelAdded.Text = "0";//по умолчанию
             }
             catch (FormatException ex)
             {
-                FormMain.labelAdded.Text = "0";
+                FormMain.labelAdded.Text = "0";//по умолчанию
             }
         }
     }
