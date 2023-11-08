@@ -35,7 +35,7 @@ namespace TelegramKinoBot_AdminPanel_WinForms
 
         public static void RefreshDB()
         {
-            DB_Table.DB_TableShow();
+            DB_TableShow.Show();
             Labels.RefreshLabel();
         }
 

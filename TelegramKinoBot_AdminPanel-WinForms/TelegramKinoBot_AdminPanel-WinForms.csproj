@@ -97,6 +97,8 @@
     <Compile Include="DB_Table.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DB_TableShow.cs" />
+    <Compile Include="FilmButtons.cs" />
     <Compile Include="FormAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +111,7 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Image.cs" />
     <Compile Include="Labels.cs" />
     <Compile Include="ListViewButtons.cs" />
     <Compile Include="Program.cs" />
