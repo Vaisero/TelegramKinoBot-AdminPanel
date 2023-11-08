@@ -10,6 +10,7 @@ namespace TelegramKinoBot_AdminPanel_WinForms
 {
     internal class DB_Table : FormMain
     {
+
         public static void DB_TableInitialize()
         {
             ListView listView1 = GetListView();
@@ -49,7 +50,7 @@ namespace TelegramKinoBot_AdminPanel_WinForms
         private static void DeleteFilm(object sender, ListViewColumnMouseEventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                "Ты уверен, что хочешь БЕЗВОЗВРАТНО удалить фильм?", 
+                $"Ты уверен, что хочешь БЕЗВОЗВРАТНО удалить фильм №{e.Item.Text}?", 
                 "Удалить фильм", 
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Information,
@@ -72,10 +73,9 @@ namespace TelegramKinoBot_AdminPanel_WinForms
 
         private static void EditFilm(object sender, ListViewColumnMouseEventArgs e)
         {
+            string sql = $"Select id, name, image, link, link2, link3, link4, link5 from kino.kino where id='{e.Item.Text}';";
 
-            string sql = "Select id, name, image, link, link2, link3, link4, link5 from kino.kino";//запрос на вывод данных
-
-            var FormEdit = new FormAdd();
+            var FormEdit = new FormAdd(sql, Int32.Parse(e.Item.Text));
             FormEdit.ShowDialog();
 
             RefreshDB();

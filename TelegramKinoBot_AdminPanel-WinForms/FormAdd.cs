@@ -2,19 +2,44 @@
 using System;
 using System.Windows.Forms;
 
+
 namespace TelegramKinoBot_AdminPanel_WinForms
 {
     public partial class FormAdd : Form
     {
+
+        public bool updateData = false;
+        public int updateID;
+
         public FormAdd()
         {
             InitializeComponent();
         }
 
-        public FormAdd(String s)
+        public FormAdd(String sql, int id)
         {
             InitializeComponent();
+            
+            NpgsqlConnection connection = FormMain.CONNECTION_STRING();
+            connection.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+            var Reader = cmd.ExecuteReader();
 
+            while (Reader.Read())
+            {
+                textBoxName.Text = Reader["name"].ToString();
+                textBoxImage.Text = Reader["image"].ToString();
+                textBoxKinoLink.Text = Reader["link"].ToString();
+                textBoxLink1.Text = Reader["link2"].ToString();
+                textBoxLink2.Text = Reader["link3"].ToString();
+                textBoxLink3.Text = Reader["link4"].ToString();
+                textBoxLink4.Text = Reader["link5"].ToString();
+            }
+            Reader.Close();
+            connection.Close();
+
+            updateID = id;
+            updateData = true;
         }
 
         private void Save_Click(object sender, EventArgs e)
@@ -23,8 +48,12 @@ namespace TelegramKinoBot_AdminPanel_WinForms
             {
                 NpgsqlConnection connection = FormMain.CONNECTION_STRING();
                 connection.Open();
-                
+
                 string sql = $"INSERT into kino.kino(name, image, link, link2, link3, link4, link5) VALUES ('{textBoxName.Text}', '{textBoxImage.Text}', '{textBoxKinoLink.Text}', '{textBoxLink1.Text}', '{textBoxLink2.Text}', '{textBoxLink3.Text}', '{textBoxLink4.Text}');";
+
+                if(updateData)
+                    sql = $"UPDATE kino.kino set name='{textBoxName.Text}', image='{textBoxImage.Text}', link='{textBoxKinoLink.Text}', link2='{textBoxLink1.Text}', link3='{textBoxLink2.Text}', link4='{textBoxLink3.Text}', link5='{textBoxLink4.Text}' where id={updateID};";
+
 
                 NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
                 cmd.ExecuteNonQuery();//занесение нового фильма в БД
