@@ -22,7 +22,10 @@ namespace TelegramKinoBot_AdminPanel_WinForms
                 NpgsqlConnection connection = FormMain.CONNECTION_STRING();
                 connection.Open();
 
-                string sql = $"Delete from kino.kino where id='{e.Item.Text}';";//удаление конкретного фильма по id
+                //string sql = $"Delete from kino.kino where id='{e.Item.Text}';"; // работает не корректно во всех реляционных БД
+
+                //удаление конкретного фильма по id
+                string sql = $"UPDATE kino.kino set name='', image='', kino_link='', link1='', link2='', link3='', link4='' where id={e.Item.Text};";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
                 cmd.ExecuteNonQuery();
@@ -36,7 +39,7 @@ namespace TelegramKinoBot_AdminPanel_WinForms
         {
             //кнопка "Редактировать" в таблице
 
-            string sql = $"Select id, name, image, link, link2, link3, link4, link5 from kino.kino where id='{e.Item.Text}';";//выбор конкретного фильма
+            string sql = $"Select id, name, image, kino_link, link1, link2, link3, link4 from kino.kino where id='{e.Item.Text}';";//выбор конкретного фильма
 
             var FormEdit = new FormAdd(sql, Int32.Parse(e.Item.Text));
             FormEdit.ShowDialog();//открытие формы "Добавить", но с автоматическим заполнением полей из конкретного фильма по id

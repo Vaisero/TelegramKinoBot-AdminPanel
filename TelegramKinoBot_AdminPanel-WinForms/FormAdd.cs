@@ -14,6 +14,7 @@ namespace TelegramKinoBot_AdminPanel_WinForms
         public FormAdd()
         {
             InitializeComponent();//запускается при добавлении нового фильма
+            textBoxName.Select();//автоматически выставляет курсор
         }
 
         public FormAdd(String sql, int id)
@@ -29,11 +30,11 @@ namespace TelegramKinoBot_AdminPanel_WinForms
             {
                 textBoxName.Text = Reader["name"].ToString();
                 textBoxImage.Text = Reader["image"].ToString();
-                textBoxKinoLink.Text = Reader["link"].ToString();
-                textBoxLink1.Text = Reader["link2"].ToString();
-                textBoxLink2.Text = Reader["link3"].ToString();
-                textBoxLink3.Text = Reader["link4"].ToString();
-                textBoxLink4.Text = Reader["link5"].ToString();
+                textBoxKinoLink.Text = Reader["kino_link"].ToString();
+                textBoxLink1.Text = Reader["link1"].ToString();
+                textBoxLink2.Text = Reader["link2"].ToString();
+                textBoxLink3.Text = Reader["link3"].ToString();
+                textBoxLink4.Text = Reader["link4"].ToString();
             }
             Reader.Close();
             connection.Close();
@@ -52,11 +53,16 @@ namespace TelegramKinoBot_AdminPanel_WinForms
                 connection.Open();
 
                 //строка на добавление нового фильма
-                string sql = $"INSERT into kino.kino(name, image, link, link2, link3, link4, link5) VALUES ('{textBoxName.Text}', '{textBoxImage.Text}', '{textBoxKinoLink.Text}', '{textBoxLink1.Text}', '{textBoxLink2.Text}', '{textBoxLink3.Text}', '{textBoxLink4.Text}');";
+                var link1 = textBoxLink1.Text == "" ? "null" : $"'{textBoxLink1.Text}'";
+                var link2 = textBoxLink2.Text == "" ? "null" : $"'{textBoxLink2.Text}'";
+                var link3 = textBoxLink3.Text == "" ? "null" : $"'{textBoxLink3.Text}'";
+                var link4 = textBoxLink4.Text == "" ? "null" : $"'{textBoxLink4.Text}'";
+
+                string sql = $"INSERT into kino.kino(name, image, kino_link, link1, link2, link3, link4) VALUES ($${textBoxName.Text}$$, $${textBoxImage.Text}$$, $${textBoxKinoLink.Text}$$, {link1}, {link2}, {link3}, {link4});";
 
                 if(updateData) 
                     //строка на обновление имеющегося фильма
-                    sql = $"UPDATE kino.kino set name='{textBoxName.Text}', image='{textBoxImage.Text}', link='{textBoxKinoLink.Text}', link2='{textBoxLink1.Text}', link3='{textBoxLink2.Text}', link4='{textBoxLink3.Text}', link5='{textBoxLink4.Text}' where id={updateID};";
+                    sql = $"UPDATE kino.kino set name='{textBoxName.Text}', image='{textBoxImage.Text}', kino_link='{textBoxKinoLink.Text}', link1='{textBoxLink1.Text}', link2='{textBoxLink2.Text}', link3='{textBoxLink3.Text}', link4='{textBoxLink4.Text}' where id={updateID};";
 
 
                 NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
