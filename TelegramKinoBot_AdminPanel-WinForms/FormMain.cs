@@ -11,6 +11,7 @@ namespace TelegramKinoBot_AdminPanel_WinForms
             InitializeComponent();
             DB_Table.DB_TableInitialize();//отображение списка фильмов
             labelAdded.Text = null; //колличество добавленных фильмов за сессию
+            Labels.AddedLabel();
             Labels.RefreshLabel();//обновление счётчика колличества фильмов 
         }
 

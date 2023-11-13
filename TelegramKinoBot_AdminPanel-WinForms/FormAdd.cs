@@ -70,6 +70,8 @@ namespace TelegramKinoBot_AdminPanel_WinForms
                 connection.Close();
 
                 Labels.RefreshLabel();//обновление счётчика колличества фильмов 
+                if(!updateData)
+                Labels.AddedLabel();//обновление счётчика добавленных фильмов 
             }
             else//проверка на  заполненность обязательных строк
             {

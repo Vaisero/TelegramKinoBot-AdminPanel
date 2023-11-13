@@ -5,8 +5,8 @@ namespace TelegramKinoBot_AdminPanel_WinForms
 {
     internal class Labels
     {
-        
-        public static void RefreshLabel ()
+
+        public static void RefreshLabel()
         {
             //создание и обновление Label
 
@@ -26,8 +26,10 @@ namespace TelegramKinoBot_AdminPanel_WinForms
             }
             connection.Close();
 
-
-
+        }
+        
+        public static void AddedLabel() 
+        {
             // обработка labelAdded
 
             //колличество добавленных фильмов за сессию
